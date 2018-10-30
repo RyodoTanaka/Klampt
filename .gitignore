@@ -77,6 +77,7 @@ CTest*
 cmake*.cmake
 Makefile
 _CPack*
+/build
 
 # Log files
 *.log
