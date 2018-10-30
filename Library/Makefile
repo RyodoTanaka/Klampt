@@ -8,7 +8,7 @@ ODECONFIG += --enable-double-precision
 UNAME = $(shell uname)
 
 unpack-deps:
-	git clone https://github.com/krishauser/KrisLibrary
+	git clone https://github.com/RyodoTanaka/KrisLibrary
 	tar xvzf ode-0.11.1.tar.gz
 	tar xvzf glui-2.36.tgz
 
