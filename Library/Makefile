@@ -16,20 +16,21 @@ deps: dep-tinyxml dep-glui dep-ode dep-KrisLibrary
 
 dep-KrisLibrary:
 	cd KrisLibrary; cmake .
-	cd KrisLibrary; make KrisLibrary
+	cd KrisLibrary; make -j`nproc`
+	cd KrisLibrary; sudo make -j`nproc` install
 
 dep-tinyxml:
-	cd tinyxml; make lib
+	cd tinyxml; make -j`nproc` lib
 
 ifeq ($(UNAME), Darwin)
 dep-glui:
 	patch -N glui-2.36/src/makefile < glui-mac-osx.patch || true
-	cd glui-2.36/src; make
+	cd glui-2.36/src; make -j`nproc`
 else
 dep-glui:
-	cd glui-2.36/src; make
+	cd glui-2.36/src; make -j`nproc`
 endif
 
 dep-ode:
 	cd ode-0.11.1; X_EXTRA_LIBS=-lX11 ./configure $(ODECONFIG)
-	cd ode-0.11.1/ode/src; make
+	cd ode-0.11.1/ode/src; make -j`nproc`
